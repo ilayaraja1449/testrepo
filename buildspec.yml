@@ -46,7 +46,6 @@ phases:
       - aws eks update-kubeconfig --region $CLUSTER_1_REGION --name $CLUSTER_1_NAME
       - kubectl get nodes
       - sed "s|REPO_URI|$IMAGE_REPO_1|" demo-app/values.yaml > values-use1.yaml
-      - helm upgrade --install demo-app ./demo-app -f values-use1.yaml --namespace default --wait
 
       - echo "Deploying to EKS Cluster 2 ($CLUSTER_2_NAME)..."
       - aws eks update-kubeconfig --region $CLUSTER_2_REGION --name $CLUSTER_2_NAME
